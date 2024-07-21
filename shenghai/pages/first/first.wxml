@@ -1,0 +1,65 @@
+<!--pages/first.wxml-->
+
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="character-wrepper">
+      <view class="avatar-wrapper">
+        <image class="avatar" src="{{selectedAvatar}}" mode="aspectFill"></image>
+        <view class="character-label">{{selectedCharacter.name}}</view>
+      </view>
+      <view class="scale-wrapper">
+        <view class="scale-row">
+          <view class="property-scale">小攻击:{{selectedCharacter.currentScale[0]}}</view>
+          <view class="property-scale">大攻击:{{selectedCharacter.currentScale[1]}}</view>
+          <view class="property-scale">暴击:{{selectedCharacter.currentScale[6]}}</view>
+          <view class="property-scale">爆伤:{{selectedCharacter.currentScale[7]}}</view>
+        </view>
+        <view class="scale-row">
+          <view class="property-scale">小生命:{{selectedCharacter.currentScale[2]}}</view>
+          <view class="property-scale">大生命:{{selectedCharacter.currentScale[3]}}</view>
+          <view class="property-scale">小防御:{{selectedCharacter.currentScale[4]}}</view>
+          <view class="property-scale">大防御:{{selectedCharacter.currentScale[5]}}</view>
+        </view>
+        <view class="scale-row">
+          <view class="property-scale">普攻:{{selectedCharacter.currentScale[8]}}</view>
+          <view class="property-scale">重击:{{selectedCharacter.currentScale[9]}}</view>
+          <view class="property-scale">技能:{{selectedCharacter.currentScale[10]}}</view>
+          <view class="property-scale">大招:{{selectedCharacter.currentScale[11]}}</view>
+          <view class="property-scale">充能:{{selectedCharacter.currentScale[12]}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="strategy-wrapper">
+      <text class="strategy-label">策略选择</text>
+      <view class="radio-wrapper" >
+        <view class="strategy-radio" bind:tap="onTabStrategy">{{selectedStrategy.desc}}——[{{selectedStrategy.value}}]</view>
+        <radio-group hidden="{{strategyHidd}}" bindchange="onStrategyChange">
+          <view  wx:for="{{selectedCharacter.strategies}}" wx:key="index">
+           <radio class="strategy-radio" value="{{index}} " checked="{{item.desc===selectedStrategy.desc}}">{{item.desc}}-[{{item.value}}]</radio>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+    <view class="start" bind:tap="onTabStart">{{startIndicate}}</view>
+
+    <view class="button-wrapper" hidden="{{propertiesHidd}}">
+      <button class="continue-button" bind:tap="onContinue">{{leftButtonText}}</button>
+      <button class="giveup-button" bind:tap="onGiveUp">放弃</button>
+    </view>
+
+    <view class="property-wrapper" hidden="{{propertiesHidd}}">
+      <view class="property-row" wx:for="{{properties}}" wx:key="index">
+        <view class="property-No">{{index+1}}</view>
+        <view class="property-label">副词条</view>
+        <view class="property-picker">
+          <picker mode="multiSelector" id="{{index}}" bindchange="onProPickerChange" bindcolumnchange="onProPickerColumnChange" range="{{pickArray}}">
+            <view wx:if=""
+          {{properties[index].name}}:{{properties[index].value}}
+          </picker>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</scroll-view>

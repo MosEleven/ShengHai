@@ -1,0 +1,109 @@
+/* pages/first.wxss */
+
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.strategy-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border-top: .5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+  color: black;
+}
+.strategy-label {
+  width: fit-content;
+}
+.radio-wrapper{
+  width: fit-content;
+  flex:1;
+}
+
+.strategy-radio {
+  width: 100%;
+  text-align: center;
+}
+
+.character-wrepper {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+  color: black;
+}
+.avatar-wrapper{
+  width: fit-content;
+}
+.character-label{
+  width: 100%;
+  text-align: center;
+}
+.avatar{
+  width: 50px;
+  height: 50px;
+  border: .5px solid;
+}
+.scale-wrapper{
+  display: list-item;
+}
+.scale-row{
+  display: inline-flex;
+  flex: 1;
+}
+.property-scale {
+  text-align: center;
+  font-size: small;
+  padding-top: 4px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+}
+.start {
+  width: 70%;
+  text-align: center;
+  padding: 10px;
+  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+}
+.property-wrapper{
+  display:list-item;
+  width: 100%;
+  padding-left: 50px;
+}
+.property-row{
+  display: flex;
+  width: 100%;
+  padding: 16px;
+}
+.property-No{
+  width: 50px;
+  text-align: center;
+}
+.property-label{
+  width: 100px;
+  text-align: center;
+}
+.property-picker{
+  width: fit-content;
+}
+.button-wrapper{
+  display: flex;
+  width: 100%;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.continue-button{
+  width: 50%;
+  padding-right: 50px;
+}
+.giveup-button{
+  width: 50%;
+  padding-left: 50px;
+}

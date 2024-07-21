@@ -1,0 +1,19 @@
+<!--pages/storage/storage.wxml-->
+<wxs module="util">
+var printProperties = function(properties) {
+  var s = "";
+  for(var i=0; i<properties.length; i++){
+    s += properties[i].name + ":" + properties[i].value + ";";
+  }
+  return s;
+}
+module.exports.print = printProperties;
+</wxs>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="storage" wx:for="{{equips}}" wx:key="index">
+      <view class="equip-text">编号：{{index}}，得分：{{item.score}}</view>
+      <view class="equip-text">{{util.print(item.properties)}}</view>
+    </view>
+  </view>
+</scroll-view>
