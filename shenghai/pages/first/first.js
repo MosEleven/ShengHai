@@ -14,16 +14,14 @@ Page({
    */
   data: {
     strategyHidd:true,
-    // defaultNo:0,
-    // strategies:[
-    //   {value:0,strategy:[0,10,36,78], desc:"综合最优"},
-    //   {value:1,strategy:[6,6,6,6],desc:"资源最省"}
-    // ],
+    setHidd:true,
+    scaleSetHidd:true,
+    strategySetHidd:true,
+    tempScale:[],
+
     selectedStrategy:null,
-    // selectedDesc:"待选择",
     selectedCharacter:null,
     selectedAvatar:"",
-    // defaultAvatar:"../../images/c-avatar/default.png",
     propertiesHidd: true,
     started:false,
     properties: [],
@@ -41,6 +39,32 @@ Page({
     this.setData({startIndicate:"开始强化"}),
     this.setData({leftButtonText:"继续"}),
     this.setData({pickArray:[Object.keys(proDic),level[0]]})
+  },
+
+  onTabScale: function(){
+    this.setData({setHidd:false});
+    this.setData({scaleSetHidd:false});
+    this.setData({strategySetHidd:true});
+    var scale = new Array(13);
+    for(let i=0; i<13; i++){
+      scale[i] = this.data.selectedCharacter.currentScale[i];
+    }
+    this.setData({tempScale:scale})
+    
+  },
+  OnConfirmScaleChange: function(){
+    //收集所有input内容，转成double存入selectedCharacter.currentScale，或者双向绑定
+    var c = this.data.selectedCharacter;
+    c.currentScale = this.data.tempScale;
+    this.setData({selectedCharacter:c});
+    //更新缓存
+    wx.setStorageSync(c.name, c);
+    this.onCancelScaleChange()
+  },
+  onCancelScaleChange: function(){
+    this.setData({setHidd:true});
+    this.setData({scaleSetHidd:true});
+    this.setData({strategySetHidd:true});
   },
 
   onTabStrategy: function(){

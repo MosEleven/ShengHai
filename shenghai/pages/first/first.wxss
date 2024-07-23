@@ -5,6 +5,27 @@ page {
   display: flex;
   flex-direction: column;
 }
+.set-block{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.scale-set-block{
+  position: fixed;
+  height: 70%;
+  width: 80%;
+  top: 15%;
+  left: 10%;
+  background-color: white;
+  text-align: center;
+}
+.scale-set{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 5rpx;
+}
+
 .scrollarea {
   flex: 1;
   overflow-y: hidden;

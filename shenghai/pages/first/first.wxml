@@ -7,7 +7,7 @@
         <image class="avatar" src="{{selectedAvatar}}" mode="aspectFill"></image>
         <view class="character-label">{{selectedCharacter.name}}</view>
       </view>
-      <view class="scale-wrapper">
+      <view class="scale-wrapper" bind:tap="onTabScale">
         <view class="scale-row">
           <view class="property-scale">小攻击:{{selectedCharacter.currentScale[0]}}</view>
           <view class="property-scale">大攻击:{{selectedCharacter.currentScale[1]}}</view>
@@ -53,8 +53,8 @@
         <view class="property-label">副词条</view>
         <view class="property-picker">
           <picker mode="multiSelector" id="{{index}}" bindchange="onProPickerChange" bindcolumnchange="onProPickerColumnChange" range="{{pickArray}}">
-            <view wx:if=""
-          {{properties[index].name}}:{{properties[index].value}}
+            <view wx:if="{{properties[index].value<=0.1}}">点击输入新的词条</view>
+          <view wx:else>{{properties[index].name}}:{{properties[index].value}}</view>
           </picker>
         </view>
       </view>
@@ -63,3 +63,20 @@
   </view>
 
 </scroll-view>
+
+<view class="set-block" hidden="{{setHidd}}">
+  <view class="scale-set-block" hidden="{{scaleSetHidd}}">
+    <view>权重设置</view>
+    <view class="scale-set" wx:for="{{pickArray[0]}}" wx:key="index">
+      <label>{{item}}:</label>
+      <input type="number" model:value="{{tempScale[index]}}" placeholder="只填数字,默认{{tempScale[index]}}"></input>
+    </view>
+    
+    <view class="button-wrapper">
+      <button class="continue-button" bind:tap="OnConfirmScaleChange">确认</button>
+      <button class="giveup-button" bind:tap="onCancelScaleChange">取消</button>
+    </view>
+  </view>
+  <view class="strategy-set-block" hidden="{{strategySetHidd}}">
+  </view>
+</view>

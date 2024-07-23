@@ -11,13 +11,10 @@
 - [ ] 伤害计算
 - [ ] 伤害方案保存
 
-
-
-
 ## 存储数据管理
 
 1. 强化过的声骸
-
+   
    ```js
    saveResult: function(r){
        var equip = {
@@ -31,26 +28,22 @@
      }
    ```
 
-   
-
 2. 角色数据
-
+   
    - 默认角色
-
+     
      ```js
      var dc = "今汐";
      wx.setStorageSync('defaultCharacter',dc)
      ```
-
+   
    - 角色属性
-
+     
      - 名称，头像
      - 权值：当前权值和默认权值
      - 强化策略，上一次策略
-
+     
      ```js
      selectedCharacter...
      wx.setStorageSync(selectedCharacter.name, selectedCharacter)
      ```
-
-     
